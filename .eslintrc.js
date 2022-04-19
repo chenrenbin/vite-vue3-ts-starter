@@ -6,13 +6,17 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'prettier',
-    'plugin:vue/essential',
+    'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended'
   ],
+  parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
     parser: '@typescript-eslint/parser',
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
   },
   plugins: ['vue', '@typescript-eslint'],
   rules: {

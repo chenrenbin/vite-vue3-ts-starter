@@ -4,9 +4,17 @@
 *.ts
 *.tsx
 *.jpg
+*.jpeg
+*.png
 *.woff
+*.json
+*.md
+*.lock
 ​
 # 测试和打包目录
 /mock/
 /dist/
 /node_modules/
+/public/
+/test/
+/index.html
