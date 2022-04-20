@@ -1,25 +1,22 @@
 <script setup lang="ts">
 // import { Button } from 'element-plus'
-import { getAccountList } from '@/api/account'
+import { Login } from '@/api/account'
 import { useAppStore } from '@/store/modules/app'
 
 const pageName = '登录页面'
 
 const appStore = useAppStore()
-console.log(1111, appStore, appStore.pageLoading)
+console.log(1111, appStore.pageLoading)
 appStore.$subscribe((mutation, state) => {
   console.log('subscribe', mutation, state)
 })
-console.log(1122)
 appStore.setPageLoading(true)
 console.log(2222, appStore.pageLoading)
 
 try {
-  const data = getAccountList({
-    page: 1,
-    pageSize: 10
+  Login({ name: 'abcd', password: '1234' }).then((res: unknown) => {
+    console.log(456, res)
   })
-  console.log(456, data)
 } catch (e) {
   console.log(789, e)
 }

@@ -1,5 +1,10 @@
 import { BasicPageParams, BasicFetchResult } from '@/api/baseModel'
 
+export interface LoginParams {
+  name?: string
+  password?: string
+}
+
 export type AccountParams = BasicPageParams & {
   account?: string
   nickname?: string

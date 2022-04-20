@@ -269,7 +269,6 @@ export class service {
           if (axios.isAxiosError(e)) {
             // rewrite error message from axios in here
           }
-          console.log(1, e)
           reject(e)
         })
     })
