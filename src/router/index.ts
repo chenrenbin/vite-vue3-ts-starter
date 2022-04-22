@@ -5,22 +5,35 @@ import {
   createWebHistory,
   createRouter
 } from 'vue-router'
+const Layout = () => import('@/layout/account/index.vue')
+
+const modules = import.meta.globEager('./**/*.ts')
+const routeModules: Array<RouteRecordRaw> = []
+Object.keys(modules).forEach(key => {
+  routeModules.push(modules[key].default)
+})
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('@/views/account/login.vue'),
-    meta: {
-      title: '登录页'
-    }
+    path: '/account',
+    component: Layout,
+    redirect: '/account/login',
+    children: [
+      {
+        path: '/account/login',
+        component: () => import('@/views/account/login.vue'),
+        meta: {
+          title: '登录页'
+        }
+      }
+    ]
   }
 ]
 
 // 创建路由实例
 export const router: Router = createRouter({
   history: createWebHistory(),
-  routes
+  routes: routes.concat(routeModules)
 })
 
 export function setupRouter(app: App<Element>) {

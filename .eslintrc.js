@@ -21,6 +21,7 @@ module.exports = {
   plugins: ['vue', '@typescript-eslint'],
   rules: {
     eqeqeq: 'error',
-    'no-var': 'error'
+    'no-var': 'error',
+    'vue/multi-word-component-names': 'off'
   }
 }

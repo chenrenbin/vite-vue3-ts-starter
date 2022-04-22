@@ -1,0 +1,193 @@
+@charset "utf-8";
+html {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  background-color: #eef0f8;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  border-style: none;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+footer,
+header,
+section,
+nav,
+i,
+b,
+em,
+strong,
+button,
+label,
+input,
+textarea,
+select,
+audio,
+video,
+article,
+aside,
+dialog,
+figure,
+optgroup,
+menu,
+ul,
+ol,
+dd,
+dt,
+dl {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  &:hover,
+  &:active,
+  &:visited,
+  &:link,
+  &:focus {
+    // 去除默认蓝色背景
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+input,
+textarea,
+select {
+  resize: none;
+  border: none;
+  outline: none;
+  color: inherit;
+  background: rgba(0, 0, 0, 0);
+  // iOS系统下input submit会有圆角，如果添加有背景色，背景色错误
+  -webkit-appearance: none;
+  border-radius: 0;
+  // 消除浏览器输入框高亮背景色
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  // 消除浏览器输入框自动填充的背景色，颜色可根据背景设置
+  &:-webkit-autofill {
+    box-shadow: 0 0 0 1000px #fff inset;
+  }
+  &:focus {
+    box-shadow: 0 0 0 1000px #fff inset !important;
+  }
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  &-thumb {
+    background: #e5e8f7;
+    border-radius: 4px;
+  }
+  &-track-piece {
+    background: #fff;
+    border-radius: 4px;
+  }
+}
+
+textarea::-webkit-scrollbar {
+  &-thumb {
+    background: #ccc;
+  }
+  &-track-piece {
+    background: #e7e7e7;
+    margin: 8px;
+  }
+}
+
+// placeholder
+// ::-moz-placeholder {
+//   color: @text-color-secondary;
+// }
+// ::-webkit-input-placeholder {
+//   color: @text-color-secondary;
+// }
+// ::-ms-input-placeholder {
+//   color: @text-color-secondary;
+// }
+
+/*去掉IE10及IE10以上版本input框会自动出现删除按钮的样式*/
+::-ms-clear,
+::-ms-reveal {
+  display: none !important;
+}
+
+// 超出可见的包裹float元素
+.def-clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+// 多行省略
+.ellipsis {
+  display: block !important;
+  display: -webkit-box !important;
+  white-space: normal;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  line-height: 21px;
+  -webkit-line-clamp: 1;
+  max-height: 21px;
+  overflow: hidden;
+  word-break: break-all;
+  max-height: 21px;
+  // &__2 {
+  //   .ellipsis();
+  //   -webkit-line-clamp: 2;
+  //   max-height: 42px;
+  // }
+  // &__3 {
+  //   .ellipsis();
+  //   -webkit-line-clamp: 3;
+  //   max-height: 63px;
+  // }
+}
+
+/* 禁止用户选择 */
+.def-noselect {
+  user-select: none;
+}
+
+// #nprogress {
+//   .bar {
+//     background: @primary-color !important;
+//   }
+//   .spinner-icon {
+//     border-top-color: @primary-color !important;
+//     border-left-color: @primary-color !important;
+//   }
+// }
